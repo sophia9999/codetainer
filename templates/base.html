@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" class="bg-gray-100 text-gray-800">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Codetainer{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+
+  <!-- 헤더 -->
+  <header class="pt-10 text-center">
+    <h1 class="text-3xl font-bold text-blue-600">🐳 Codetainer</h1>
+    <p class="text-sm text-gray-500">코드를 입력하고 실행해보세요!</p>
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+
+  <!-- 푸터 -->
+  <footer class="text-center text-gray-400 text-sm p-6 border-t border-gray-200">
+    <p>🐳 Codetainer by <a href="https://github.com/sophia9999" class="text-blue-500 hover:underline" target="_blank">sophia9999</a></p>
+    <p class="mt-1">© 2025. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!-- 디버깅: 여기는 index.html -->
+{% extends "base.html" %}
+
+{% block title %}Codetainer - 실행기{% endblock %}
+
+{% block content %}
+<section class="max-w-3xl mx-auto px-4 py-10">
+  <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200">
+    <form method="post" class="space-y-4">
+      <div class="flex items-center gap-4">
+        <select name="language" required class="flex-1 px-3 py-2 border rounded bg-gray-50">
+          <option value="" disabled {% if not language %}selected{% endif %}>언어 선택</option>
+          {% for opt in language_options %}
+            <option value="{{ opt.value }}" {% if opt.value == language %}selected{% endif %}>{{ opt.label }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+          ▶ 실행
+        </button>
+      </div>
+
+      <textarea name="code" rows="10" placeholder="여기에 코드를 입력하세요" class="w-full font-mono text-sm p-3 border rounded bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300">{{ code or "" }}</textarea>
+    </form>
+
+    {% if result %}
+    <div class="mt-6">
+      <h2 class="text-lg font-semibold mb-1">실행 결과</h2>
+      <pre class="bg-black text-green-300 font-mono p-4 rounded whitespace-pre-wrap overflow-auto">
+{{ result }}
+      </pre>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
